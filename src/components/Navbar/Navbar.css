@@ -1,0 +1,10 @@
+.active{
+  background-color: #0369a1 !important;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #fff;
+}
+.navbar a{
+    font-weight: 600;
+
+}

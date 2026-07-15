@@ -1,0 +1,30 @@
+.app{
+    font-family: "Noto Kufi Arabic" !important;
+
+}
+a{
+  text-decoration: none !important;
+}
+a:hover{
+color: #fff;
+}
+table {
+  background-color: #0f172a !important;
+}
+
+table td,
+table th {
+  background-color: #0f172a !important;
+}
+input::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1;
+}
+
+textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1;
+}
+.modal-content .form-check-label{
+margin-right: 32px !important;
+}
