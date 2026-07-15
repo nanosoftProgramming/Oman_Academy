@@ -4,6 +4,8 @@
       "lessonId": 1,
       "lessonTitle": "الأمن الرقمي",
       "activity": {
+                                            "videoUrl":"/1.mp4",
+
 "embeddedContent": {
       "provider": "youtube",
       "url": "https://www.youtube.com/embed/BMCPwl4v7Ig",
@@ -46,6 +48,8 @@
       "lessonId": 2,
       "lessonTitle": "التواصل الرقمي المسؤول",
       "activity": {
+                                            "videoUrl":"/2.mp4",
+
 "embeddedContent": {
       "provider": "youtube",
       "url": "https://www.youtube.com/embed/BMCPwl4v7Ig",
