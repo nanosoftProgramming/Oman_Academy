@@ -76,6 +76,8 @@
       "lessonId": 3,
       "lessonTitle": "المسؤولية الرقمية",
       "activity": {
+                                    "videoUrl":"/3.mp4",
+
 "embeddedContent": {
       "provider": "youtube",
       "url": "https://www.youtube.com/embed/BMCPwl4v7Ig",
