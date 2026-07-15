@@ -191,7 +191,7 @@
 //           <Card className="border-0 p-4" style={{ backgroundColor: '#1e293b', color: 'white' }}>
 //             <h5 className="text-info mb-3">الأنشطة التفاعلية</h5>
 //             <div className="d-grid gap-3">
-//               {['اختبر معلوماتك', 'نقاش تفاعلي'].map((activity, idx) => (
+//               {['اختبر معلوماتك', 'فيديو للنقاش التفاعلي'].map((activity, idx) => (
 //                 <Button 
 //                   key={idx} 
 //                   variant="outline-light" 
@@ -501,7 +501,7 @@ const videoSrc = lessonActivityData?.activity?.videoUrl;
           <Card className="border-0 p-4" style={{ backgroundColor: '#1e293b', color: 'white' }}>
             <h5 className="text-info mb-3">الأنشطة التفاعلية</h5>
             <div className="d-grid gap-3">
-              {['اختبر معلوماتك', 'نقاش تفاعلي'].map((activity, idx) => (
+              {['اختبر معلوماتك', 'فيديو للنقاش التفاعلي'].map((activity, idx) => (
                 <Button 
                   key={idx} 
                   variant="outline-light" 

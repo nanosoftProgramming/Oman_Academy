@@ -163,7 +163,16 @@ dispatch(updateTrainer(editingTrainer))
               </Col>
               <Col md={12} className="mb-2">
                 <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>الرتبة</Form.Label>
-                <Form.Select
+                            <Form.Control
+                  name="rank"
+                  type="text"
+                  value={editingTrainer.rank || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  required
+                />
+                {/* <Form.Select
                   name="rank"
                   value={editingTrainer.rank || ''}
                   onChange={handleEditChange}
@@ -175,7 +184,7 @@ dispatch(updateTrainer(editingTrainer))
                   <option value="جندي">جندي</option>
                   <option value="عريف">عريف</option>
                   <option value="رقيب">رقيب</option>
-                </Form.Select>
+                </Form.Select> */}
               </Col>
               <Col md={12}>
                 <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>الحالة</Form.Label>
@@ -250,19 +259,17 @@ dispatch(updateTrainer(editingTrainer))
                   />
                 </Col>
                 <Col md={4}>
-                  <Form.Select
-                    name="rank"
-                    value={formData.rank}
-                    onChange={handleChange}
-                    style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
-                    className='py-2 px-3 text-white'
-                    required
-                  >
-                    <option value="">اختر الرتبة</option>
-                    <option value="جندي">جندي</option>
-                    <option value="عريف">عريف</option>
-                    <option value="رقيب">رقيب</option>
-                  </Form.Select>
+                            <Form.Control
+                  name="rank"
+                  type="text"
+                                      placeholder="الرتبة"
+
+                  value={formData.rank || ''}
+                  onChange={handleChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  required
+                />
                 </Col>
                 <Col md={4}>
                   <Button type="submit" className="w-100 btn-primary">تسجيل</Button>

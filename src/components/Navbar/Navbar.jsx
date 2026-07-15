@@ -26,8 +26,8 @@ const CustomNavbar = () => {
             <Link className={location.pathname=="/"?'active  px-3 py-2':"text-white  px-3 py-2"} to="/">الرئيسية</Link>
             <Link  className={location.pathname=="/trainers"?'active  px-3 py-2':'text-white px-3 py-2'} to="/trainers">المتدربون</Link>
                 <Link  className={location.pathname=="/lessons"?'active  px-3 py-2':'text-white px-3 py-2'} to="/lessons">الدروس</Link>
-                <Link  className={location.pathname=="/library"?'active px-3 py-2':'text-white px-3 py-2'} to="/library">مكتبة المفاهيم</Link>
-                <Link  className={location.pathname=="/library"?'active px-3 py-2':'text-white px-3 py-2'} to="/library">بطاقة ملاحظات</Link>
+                <Link  className={'text-white px-3 py-2'} to="https://forms.gle/9MJ37g3Xtd5BGeoJ9">مكتبة المفاهيم</Link>
+                <Link  className={'text-white px-3 py-2'} to="https://docs.google.com/forms/d/e/1FAIpQLSfw3CUpZIm63Bvyf-qsW5hwFlon69axkVS8wpDjWF8GK6ra-w/viewform?usp=dialog">بطاقة ملاحظات</Link>
                 <Link  className={location.pathname=="/library"?'active px-3 py-2':'text-white px-3 py-2'} to="/library">الاختبار</Link>
                 <Link  className={location.pathname=="/ai"?'active px-3 py-2':'text-white px-3 py-2'} to="/ai">المساعد الذكي</Link>
           </Nav>
