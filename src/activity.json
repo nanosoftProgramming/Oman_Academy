@@ -106,6 +106,8 @@
       "lessonId": 4,
       "lessonTitle": "الوصول الرقمي",
       "activity": {
+                            "videoUrl":"/4.mp4",
+
 "embeddedContent": {
       "provider": "youtube",
       "url": "https://www.youtube.com/embed/BMCPwl4v7Ig",
