@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import logo from "../../assets/logo.jpeg"
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,9 @@ const HeroSection = () => {
         <Row className="justify-content-center">
           <Col md={8}>
             {/* Logo placeholder */}
-            <div className="mb-4" style={{ fontSize: '3rem' }}>🛡️</div>
+            <div className="mb-4" style={{ fontSize: '3rem' }}>
+              <img src={logo} alt="Logo" style={{ width: '150px', height: '150px',borderRadius:"50%" }} />
+            </div>
             
             {/* Titles */}
             <h1 className="fw-bold mb-3" style={{ color: '#60a5fa' }}>

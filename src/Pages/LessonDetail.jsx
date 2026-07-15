@@ -257,7 +257,7 @@ const LessonDetail = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedAnswer) {
-      alert("الرجاء اختيار إجابة أولاً");
+      alert("");
       return;
     }
 
