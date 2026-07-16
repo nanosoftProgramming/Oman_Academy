@@ -1,9 +1,10 @@
-import React from 'react'
-
+import React from 'react';
+import LoginForm from '../components/LoginForm/LoginForm';
 function Login() {
   return (
-    <div>
-      
+    <div className='d-flex justify-content-center  h-100'>
+
+<LoginForm/>
     </div>
   )
 }

@@ -1,0 +1,88 @@
+/* Background with the soft green glow in the corner */
+.login-page-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  margin: 20px auto;
+
+}
+
+/* The logo icon container */
+.brand-icon-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Customizing the Bootstrap Input Look */
+.custom-input-group .input-group-text {
+  background-color: #f8f9fa;
+  border-right: none;
+  color: #adb5bd;
+    border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+    border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+border-left: 1px solid #dee2e6;
+
+
+
+}
+
+.custom-input-group .form-control {
+  background-color: #f8f9fa;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+border-left: 1px solid #dee2e6;
+}
+
+.custom-input-group .form-control:focus {
+  background-color: #f8f9fa;
+  box-shadow: none;
+  border-color: #dee2e6;
+}
+
+/* The Dark Green Secure Login Button */
+.btn-secure-login {
+  background-color: #005a32;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-secure-login:hover {
+  background-color: #004426;
+}
+
+/* Partner Login Buttons */
+.btn-partner {
+  border: 1px solid #dee2e6;
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.academy-link {
+  color: #106b44;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.academy-link:hover {
+  text-decoration: underline;
+}
+.btn:active, .btn:focus, .btn:focus-visible {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #106b44 !important;
+
+}

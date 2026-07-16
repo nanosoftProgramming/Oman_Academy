@@ -83,7 +83,7 @@ export const updateTrainer = createAsyncThunk(
     try {
       const state = thunkAPI.getState(); // Access Redux state
 
-      const response = await axios.put(`${API_URL}/trainers/${trainerData?.id}`, trainerData, {
+      const response = await axios.post(`${API_URL}/trainers/edit/${trainerData?.id}`, trainerData, {
         headers: {
           Authorization: `Bearer ${state.auth.userArray.access_token}`,
         },
@@ -98,12 +98,11 @@ export const updateTrainer = createAsyncThunk(
 );export const deleteTrainer = createAsyncThunk(
   "trainers/deleteTrainer",
   async (trainerID, thunkAPI) => {
-    console.log(trainerID,"trainerData");
     
     try {
       const state = thunkAPI.getState(); // Access Redux state
 
-      const response = await axios.delete(`${API_URL}/trainers/${trainerID}`);
+      const response = await axios.post(`${API_URL}/trainers/delete/${trainerID}`);
       console.log(response.data.data);
       
       return response.data.data;

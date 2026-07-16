@@ -11,13 +11,18 @@ function Trainers() {
   const [show, setShow] = useState(false);
   const [editShow, setEditShow] = useState(false); // حالة لإظهار/إخفاء مودال التعديل
   const [itemID, setItemID] = useState(null);
-
+const [loading, setLoading] = useState(false)
+const [updateLoading, setUpadateLoading] = useState(false)
+const [deleteLoading, setDeleteLoading] = useState(false)
   // حالة لتخزين بيانات المتدرب الجاري تعديله
   const [editingTrainer, setEditingTrainer] = useState({
     id: null,
     name: '',
     email: '',
     rank: '',
+    totaldegree: '',
+    gpa: '',
+    percentage: '',
     status: 1
   });
 
@@ -36,6 +41,10 @@ function Trainers() {
     name: '',
     email: '',
     rank: '',
+    totaldegree: '',
+    password:"",
+    gpa: '',
+    percentage: ''
   });
 
   // تحديث القيم عند الكتابة أو الاختيار لنموذج الإضافة
@@ -53,12 +62,15 @@ function Trainers() {
   // دالة إرسال البيانات عند الضغط على تسجيل (إضافة)
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     dispatch(addTrainer(formData))
       .unwrap()
       .then(() => {
         dispatch(fetchTrainers());
+    setLoading(false)
+
         alert("تم إضافة المتدرب بنجاح");
-        setFormData({ name: '', email: '', rank: '' });
+        setFormData({ name: '', email: '', rank: '',password:'',gpa:"",totaldegree:"",percentage:"" });
       })
       .catch((err) => {
         alert(err);
@@ -69,10 +81,14 @@ function Trainers() {
   // دالة إرسال بيانات التعديل
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
+        setUpadateLoading(true)
+
 dispatch(updateTrainer(editingTrainer))
       .unwrap()
       .then(() => {
         dispatch(fetchTrainers());
+            setUpadateLoading(false)
+
         alert("تم تعديل بيانات المتدرب بنجاح");
         setEditShow(false);
       })
@@ -99,15 +115,29 @@ dispatch(updateTrainer(editingTrainer))
       <Button variant="secondary" onClick={handleClose} style={{ fontFamily: "Noto Kufi Arabic" }}>
         الغاء
       </Button>
+{deleteLoading?
+      <Button 
+        variant="dark" 
+        style={{ fontFamily: "Noto Kufi Arabic" }}
+  disabled
+  className='text-light'
+      >
+جاري الحذف .......
+      </Button>
+:
       <Button 
         variant="primary" 
         style={{ fontFamily: "Noto Kufi Arabic" }}
         onClick={() => {
+              setDeleteLoading(true)
+
           dispatch(deleteTrainer(itemID))
             .unwrap()
             .then(() => {
               alert(`تم مسح المتدرب بنجاح`);
               dispatch(fetchTrainers());
+                  setDeleteLoading(false)
+
               setShow(false);
             })
             .catch((err) => {
@@ -117,6 +147,7 @@ dispatch(updateTrainer(editingTrainer))
       >
         حذف
       </Button>
+}
     </Modal.Footer>
   );
 
@@ -186,6 +217,78 @@ dispatch(updateTrainer(editingTrainer))
                   <option value="رقيب">رقيب</option>
                 </Form.Select> */}
               </Col>
+                    <Col md={12} className="mb-2">
+                <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>الدرجة الكلية</Form.Label>
+                            <Form.Control
+                  name="totaldegree"
+                  type="text"
+                  value={editingTrainer.totaldegree || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                />
+                {/* <Form.Select
+                  name="rank"
+                  value={editingTrainer.rank || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  required
+                >
+                  <option value="">اختر الرتبة</option>
+                  <option value="جندي">جندي</option>
+                  <option value="عريف">عريف</option>
+                  <option value="رقيب">رقيب</option>
+                </Form.Select> */}
+              </Col>
+                    <Col md={12} className="mb-2">
+                <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>المعدل</Form.Label>
+                            <Form.Control
+                  name="gpa"
+                  type="text"
+                  value={editingTrainer.gpa || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                />
+                {/* <Form.Select
+                  name="rank"
+                  value={editingTrainer.rank || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  required
+                >
+                  <option value="">اختر الرتبة</option>
+                  <option value="جندي">جندي</option>
+                  <option value="عريف">عريف</option>
+                  <option value="رقيب">رقيب</option>
+                </Form.Select> */}
+              </Col>
+                    <Col md={12} className="mb-2">
+                <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>التقدم</Form.Label>
+                            <Form.Control
+                  name="percentage"
+                  type="text"
+                  value={editingTrainer.percentage || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                />
+                {/* <Form.Select
+                  name="rank"
+                  value={editingTrainer.rank || ''}
+                  onChange={handleEditChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  required
+                >
+                  <option value="">اختر الرتبة</option>
+                  <option value="جندي">جندي</option>
+                  <option value="عريف">عريف</option>
+                  <option value="رقيب">رقيب</option>
+                </Form.Select> */}
+              </Col>
               <Col md={12}>
                 <Form.Label className="text-info" style={{ fontFamily: "Noto Kufi Arabic" }}>الحالة</Form.Label>
                 <Form.Select
@@ -203,7 +306,16 @@ dispatch(updateTrainer(editingTrainer))
           </Modal.Body>
           <Modal.Footer style={{ backgroundColor: "#1e293b" }}>
             <Button variant="secondary" onClick={handleEditClose} style={{ fontFamily: "Noto Kufi Arabic" }}>إلغاء</Button>
+          {updateLoading?
+                      <Button type="submit"  disabled variant="dark"
+                      className='text-light'
+                      style={{ fontFamily: "Noto Kufi Arabic" }}>جاري الحفظ ....... </Button>
+
+        :
+
             <Button type="submit" variant="primary" style={{ fontFamily: "Noto Kufi Arabic" }}>حفظ التعديلات</Button>
+
+        }
           </Modal.Footer>
         </Form>
       </Modal>
@@ -259,6 +371,18 @@ dispatch(updateTrainer(editingTrainer))
                   />
                 </Col>
                 <Col md={4}>
+                  <Form.Control
+                    name="password"
+                    type="text"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="كلمة المرور"
+                    style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                    className='py-2 px-3 text-white'
+                    required
+                  />
+                </Col>
+                <Col md={4}>
                             <Form.Control
                   name="rank"
                   type="text"
@@ -271,8 +395,53 @@ dispatch(updateTrainer(editingTrainer))
                   required
                 />
                 </Col>
+                        <Col md={4}>
+                            <Form.Control
+                  name="totaldegree"
+                  type="text"
+                                      placeholder="الدرجة الكلية"
+
+                  value={formData.totaldegree || ''}
+                  onChange={handleChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  
+                />
+                </Col>
+                        <Col md={4}>
+                            <Form.Control
+                  name="gpa"
+                  type="text"
+                                      placeholder="المعدل"
+
+                  value={formData.gpa || ''}
+                  onChange={handleChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  
+                />
+                </Col>
+                        <Col md={4}>
+                            <Form.Control
+                  name="percentage"
+                  type="text"
+                                      placeholder="التقدم"
+
+                  value={formData.percentage || ''}
+                  onChange={handleChange}
+                  style={{ backgroundColor: "#334155", border: "1px solid #475569" }}
+                  className='py-2 px-3 text-white'
+                  
+                />
+                </Col>
                 <Col md={4}>
+                {loading?
+                                <Button type="submit"disabled className="w-100 btn-dark text-light">جاري التسجيل ............</Button>
+  
+              :
                   <Button type="submit" className="w-100 btn-primary">تسجيل</Button>
+
+              }
                 </Col>
               </Row>
             </Form>
@@ -285,6 +454,10 @@ dispatch(updateTrainer(editingTrainer))
                 <tr style={{ color: '#aaa' }}>
                   <th style={{ color: "#67e8f9" }}>الاسم</th>
                   <th style={{ color: "#67e8f9" }}>البريد</th>
+                  <th style={{ color: "#67e8f9" }}>الرتبة</th>
+                  <th style={{ color: "#67e8f9" }}>الدرجة الكلية</th>
+                  <th style={{ color: "#67e8f9" }}>المعدل</th>
+                  <th style={{ color: "#67e8f9" }}>التقدم</th>
                   <th style={{ color: "#67e8f9" }}>الحالة</th>
                   <th style={{ color: "#67e8f9" }}>الإجراءات</th>
                 </tr>
@@ -294,6 +467,10 @@ dispatch(updateTrainer(editingTrainer))
                   <tr key={t.id}>
                     <td style={{ color: "#cbd5e1" }}>{t.name}</td>
                     <td style={{ color: "#cbd5e1" }}>{t.email}</td>
+                    <td style={{ color: "#cbd5e1" }}>{t.rank}</td>
+                    <td style={{ color: "#cbd5e1" }}>{t.totaldegree}</td>
+                    <td style={{ color: "#cbd5e1" }}>{t.gpa}%</td>
+                    <td style={{ color: "#cbd5e1" }}>{t.percentage}%</td>
                     <td>
                       <Badge bg={t.status ? "success" : "secondary"}>
                         {t.status ? "نشط" : "غير نشط"}

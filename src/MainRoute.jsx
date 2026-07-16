@@ -8,15 +8,19 @@ import Lessons from './Pages/Lessons';
 import Library from './Pages/Library';
 import AI from './Pages/AI';
 import ContentSearch from './Pages/ContentSearch';
+import { useSelector } from 'react-redux';
 
 function RoutesPage() {
-    // const userinfo = useSelector((state) => state.auth);
+    const userinfo = useSelector((state) => state.auth);
+console.log(userinfo?.access_token);
 
   return (
     <Routes>
-      {/* <Route path="/" element={userinfo.access_token?<Home/>:<Login />} /> */}
+      <Route path="/" element={userinfo?.access_token?<Home/>:<Login />} />
       {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/" element={<Home/>} />
+            <Route path="/dashboard/Dashboard" element={<Home/>} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/trainers" element={<Trainers/>} />
             <Route path="/lessons" element={<Lessons/>} />
             <Route path="/lesson/:id" element={<Lesson/>} />
