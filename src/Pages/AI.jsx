@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import CustomNavbar from '../components/Navbar/Navbar';
-import knowledge from "../config/knowledge";
+import knowledge from "../content.json";
 
 const AIPage = () => {
   const [messages, setMessages] = useState([
@@ -9,17 +9,25 @@ const AIPage = () => {
   ]);
   const [input, setInput] = useState('');
 const searchKnowledge = (question) => {
-  const paragraphs = knowledge.split("\n\n");
+  const q = question.toLowerCase().trim();
+  if (!q) return "يرجى كتابة سؤال للبحث.";
 
-  const q = question.toLowerCase();
-
-  const result = paragraphs.find((p) =>
-    q
-      .split(" ")
-      .some((word) => word.length > 2 && p.toLowerCase().includes(word))
+  // 1. البحث في الـ title أولاً
+  let found = knowledge.find((item) => 
+    item.title.toLowerCase().includes(q)
   );
 
-  return result || "لم أجد معلومة مطابقة.";
+  // 2. إذا لم نجد في الـ title، نبحث في الـ describtion
+  if (!found) {
+    found = knowledge.find((item) => 
+      item.describtion.toLowerCase().includes(q)
+    );
+  }
+
+  // 3. إرجاع النتيجة
+  return found 
+    ? `${found.title}:\n\n${found.describtion}` 
+    : "عذراً، لم أجد معلومة مطابقة لسؤالك.";
 };
 const handleSend = () => {
   if (!input.trim()) return;
