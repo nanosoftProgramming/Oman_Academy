@@ -5,6 +5,8 @@ import { IoFastFoodSharp } from 'react-icons/io5';
 import "./LoginForm.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import logo from "../../assets/logo.jpeg"
+
 import { loginMethod } from '../../hook/auth';
 import axios from 'axios';
 import API_URL from '../../config/api';
@@ -92,10 +94,9 @@ console.log(response.data);
             {/* Header Section */}
             <div className="text-center mb-4">
               <div className="brand-icon-box">
-                <IoFastFoodSharp size={28} color="#005a32" />
+<img src={logo} alt="Logo" style={{ width: '70px', height: '70px',borderRadius:"50%"}} />
               </div>
-              <h2 className="fw-bold mt-3" style={{ color: '#1a1a1a' }}>ادارة تقرير الاكاديمية </h2>
-              <p className="text-muted">إدارة دقيقة للتقرير .</p>
+              <p className="text-muted mt-4">البرنامج التدريبي الإلكتروني لتنمية مهارات المواطنة الرقمية  .</p>
             </div>
 
             {/* Login Card */}

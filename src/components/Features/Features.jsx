@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const featuresData = [
   { title: "5 دروس", desc: "محتوى تفاعلي متكامل", icon: "📚",link:"/lessons" },
-    { title: "مكتبة المفاهيم", desc: "12 مفهوم أساسي", icon: "🎯",link:"/concepts" },
+    { title: "مكتبة المفاهيم", desc: "12 مفهوم أساسي", icon: "🎯",link:"/library" },
 
-    { title: "مساعد ذكي", desc: "للإجابة على أسئلتك", icon: "🤖",link:"/assistant" },
+    { title: "مساعد ذكي", desc: "للإجابة على أسئلتك", icon: "🤖",link:"/AI" },
 
 ];
 
