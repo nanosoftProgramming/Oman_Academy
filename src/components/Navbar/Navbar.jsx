@@ -35,7 +35,7 @@ console.log(userinfo?.role=="trainer");
                 <Link  className={location.pathname=="/library"?'active px-2 py-2':'text-white px-2 py-2'}  to="/library">مكتبة المفاهيم</Link>
                 <Link  className={'text-white px-2 py-2'} to="https://docs.google.com/forms/d/e/1FAIpQLSfw3CUpZIm63Bvyf-qsW5hwFlon69axkVS8wpDjWF8GK6ra-w/viewform?usp=dialog">بطاقة ملاحظات</Link>
                 <Link  className={'text-white px-2 py-2'}to="https://forms.gle/9MJ37g3Xtd5BGeoJ9">الاختبار</Link>
-                {/* <Link  className={location.pathname=="/ai"?'active px-2 py-2':'text-white px-2 py-2'} to="/ai">المساعد الذكي</Link> */}
+                <Link  className={location.pathname=="/ai"?'active px-2 py-2':'text-white px-2 py-2'} to="/ai">المساعد الذكي</Link>
           </Nav>
 
         </Navbar.Collapse>
